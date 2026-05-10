@@ -1,9 +1,17 @@
 {
-  "name": "@tunicatech/react-native-boilerplate",
+  "name": "@tunicalabs-media/react-native-boilerplate",
   "version": "0.0.1",
   "description": "React Native CLI template with navigation, Redux, Unistyles, SVG icons, and Montserrat fonts.",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tunicalabs-media/react-native-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tunicalabs-media/react-native-boilerplate/issues"
+  },
+  "homepage": "https://github.com/tunicalabs-media/react-native-boilerplate#readme",
   "keywords": [
     "react-native",
     "react-native-template",

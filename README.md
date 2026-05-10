@@ -33,16 +33,16 @@ template/
 
 ## Create A New App From This Boilerplate
 
-After publishing this package to npm, create a new app with:
+Create a new app directly from the public GitHub repository:
 
 ```sh
-npx @react-native-community/cli@latest init MyApp --template @tunicatech/react-native-boilerplate
+npx @react-native-community/cli@latest init MyApp --template https://github.com/tunicalabs-media/react-native-boilerplate.git
 ```
 
-For a different npm scope, update the root `package.json` name and use that scoped package name:
+If this package is published to npm later, use the package name:
 
 ```sh
-npx @react-native-community/cli@latest init MyApp --template @your-scope/react-native-boilerplate
+npx @react-native-community/cli@latest init MyApp --template @tunicalabs-media/react-native-boilerplate
 ```
 
 To test the template from a local checkout before publishing:
@@ -52,6 +52,12 @@ npx @react-native-community/cli@latest init MyApp --template file:/absolute/path
 ```
 
 The React Native CLI replaces the `NativeBoilerplate` placeholder with the app name passed to `init`.
+
+Repository:
+
+```text
+https://github.com/tunicalabs-media/react-native-boilerplate
+```
 
 ## Setup
 
