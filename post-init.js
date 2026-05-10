@@ -1,5 +1,15 @@
 #!/usr/bin/env node
 
+const fs = require('fs');
+const path = require('path');
+
+const npmrcSource = path.join(process.cwd(), '_npmrc');
+const npmrcTarget = path.join(process.cwd(), '.npmrc');
+
+if (fs.existsSync(npmrcSource) && !fs.existsSync(npmrcTarget)) {
+  fs.renameSync(npmrcSource, npmrcTarget);
+}
+
 const lines = [
   '',
   '  TUNICA REACT NATIVE BOILERPLATE',
