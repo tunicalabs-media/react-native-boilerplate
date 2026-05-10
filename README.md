@@ -28,6 +28,7 @@ npm run ios
 ```
 
 The generated app includes a `.npmrc` with `legacy-peer-deps=true`, so normal `npm install` uses legacy peer dependency resolution by default.
+It also includes a `.nvmrc` pinned to Node `v24.15.0`, the current Node 24 LTS release.
 
 ## Requirements
 
@@ -53,6 +54,7 @@ https://reactnative.dev/docs/set-up-your-environment
 - Custom Montserrat fonts
 - ESLint, Prettier, Jest, and Husky
 - npm `legacy-peer-deps=true` configured for generated apps
+- `.nvmrc` pinned to Node `v24.15.0`
 
 ## Generated App Scripts
 
@@ -147,6 +149,7 @@ post-init.js           Tunica post-init message and .npmrc rename
 template/              Files copied into generated apps
 template/_gitignore    Becomes .gitignore in generated apps
 template/_npmrc        Becomes .npmrc in generated apps
+template/_nvmrc        Becomes .nvmrc in generated apps
 ```
 
 ## npm Package
