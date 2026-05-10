@@ -8,7 +8,7 @@ const lines = [
   '',
   '  Included:',
   '  - React Native 0.85.3',
-  '  - TypeScript',
+  '  - TypeScript enabled by default',
   '  - React Navigation',
   '  - Redux Toolkit',
   '  - Unistyles',

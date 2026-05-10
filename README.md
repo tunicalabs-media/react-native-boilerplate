@@ -6,7 +6,7 @@ A bare React Native boilerplate with navigation, persisted Redux state, Unistyle
 
 - React Native `0.85.3`
 - React `19.2.3`
-- TypeScript
+- TypeScript enabled by default
 - React Navigation with native stack and bottom tabs
 - Redux Toolkit and React Redux
 - AsyncStorage for persisted preferences
@@ -53,6 +53,7 @@ npx @react-native-community/cli@latest init MyApp --template file:/absolute/path
 
 The React Native CLI replaces the `NativeBoilerplate` placeholder with the app name passed to `init`.
 During installation, the template prints a Tunica-branded success message before dependencies are installed.
+TypeScript is enabled by default through `tsconfig.json`, `.ts/.tsx` source files, and the React Native TypeScript config.
 
 Repository:
 
