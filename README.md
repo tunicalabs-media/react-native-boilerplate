@@ -18,7 +18,10 @@ A bare React Native boilerplate with navigation, persisted Redux state, Unistyle
 ## Project Structure
 
 ```text
-src/
+template/
+  android/          Android native project
+  ios/              iOS native project
+  src/
   components/       Shared UI components
   font/             Bundled Montserrat font files
   icons/            react-native-svg icon components
@@ -30,29 +33,32 @@ src/
 
 ## Create A New App From This Boilerplate
 
-If this repository is published as a React Native template, create a new app with:
+After publishing this package to npm, create a new app with:
 
 ```sh
-npx @react-native-community/cli init MyApp --template react-native-boilerplate
+npx @react-native-community/cli@latest init MyApp --template react-native-boilerplate
 ```
 
-If you are using this repository directly from GitHub, clone it and rename the app:
+For a scoped npm package, use the scoped package name:
 
 ```sh
-git clone <repository-url> MyApp
-cd MyApp
-npm install
-npx react-native-rename "MyApp"
-npm run pods
+npx @react-native-community/cli@latest init MyApp --template @your-scope/react-native-boilerplate
 ```
 
-After renaming, review `app.json`, native bundle identifiers, package name, and app icons before release builds.
+To test the template from a local checkout before publishing:
+
+```sh
+npx @react-native-community/cli@latest init MyApp --template file:/absolute/path/to/react-native-boilerplate
+```
+
+The React Native CLI replaces the `NativeBoilerplate` placeholder with the app name passed to `init`.
 
 ## Setup
 
 Install dependencies:
 
 ```sh
+cd template
 npm install
 ```
 
