@@ -4,7 +4,7 @@ import { HomeScreen } from '../screens/HomeScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
 import { colors } from '../theme/colors';
-import { tabBarStyles } from './styles';
+import { tabBarStyles } from '../lib/styles';
 import type { MainTabParamList } from './types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
