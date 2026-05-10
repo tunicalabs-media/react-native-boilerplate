@@ -51,8 +51,11 @@ https://reactnative.dev/docs/set-up-your-environment
 - AsyncStorage-backed persisted preferences
 - React Native Unistyles
 - React Native SVG
+- React Native Simple Toast for notification feedback
+- React Native Skeleton Placeholder for loading states
 - Custom Montserrat fonts
 - ESLint, Prettier, Jest, and Husky
+- `AGENTS.md` with AI-agent development guidance for generated apps
 - npm `legacy-peer-deps=true` configured for generated apps
 - `.nvmrc` pinned to Node `v24.15.0`
 
@@ -86,6 +89,7 @@ npm run android-release
 ## Generated App Structure
 
 ```text
+AGENTS.md          AI-agent context, stack inventory, and coding conventions
 src/
   components/       Shared UI components
   font/             Bundled Montserrat font files
@@ -141,6 +145,7 @@ npm run android
 template.config.js     React Native CLI template config
 post-init.js           Tunica post-init message and .npmrc rename
 template/              Files copied into generated apps
+template/AGENTS.md     AI-agent development guide copied into generated apps
 template/_gitignore    Becomes .gitignore in generated apps
 template/_npmrc        Becomes .npmrc in generated apps
 template/_nvmrc        Becomes .nvmrc in generated apps
