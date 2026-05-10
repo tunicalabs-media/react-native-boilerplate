@@ -1,4 +1,30 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+
+function renameIfNeeded(from, to) {
+  try {
+    if (fs.existsSync(from) && !fs.existsSync(to)) {
+      fs.renameSync(from, to);
+    }
+  } catch (error) {
+    console.error(`Failed to rename ${path.basename(from)}:`, error);
+  }
+}
+
+const npmrcSource = path.join(process.cwd(), '_npmrc');
+const npmrcTarget = path.join(process.cwd(), '.npmrc');
+
+const nvmrcSource = path.join(process.cwd(), '_nvmrc');
+const nvmrcTarget = path.join(process.cwd(), '.nvmrc');
+
+renameIfNeeded(npmrcSource, npmrcTarget);
+renameIfNeeded(nvmrcSource, nvmrcTarget);
+
 const red = '\x1b[38;2;244;15;15m';
+const white = '\x1b[97m';
+const dim = '\x1b[2m';
 const reset = '\x1b[0m';
 
 const banner = [
@@ -14,9 +40,9 @@ const lines = [
   '',
   `${red}${banner}${reset}`,
   '',
-  '  🚀 Tunica React Native Boilerplate initialized successfully.',
+  `${white}🚀 Tunica React Native Boilerplate initialized successfully.${reset}`,
   '',
-  '  Included:',
+  `${dim}Included:${reset}`,
   '  • React Native 0.85.3',
   '  • TypeScript enabled by default',
   '  • React Navigation',
@@ -24,7 +50,7 @@ const lines = [
   '  • Unistyles',
   '  • Montserrat fonts',
   '',
-  '  Repository:',
+  `${dim}Repository:${reset}`,
   '  https://github.com/tunicalabs-media/react-native-boilerplate',
   '',
 ];
