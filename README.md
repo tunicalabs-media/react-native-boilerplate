@@ -126,12 +126,6 @@ git clone https://github.com/tunicalabs-media/react-native-boilerplate.git
 cd react-native-boilerplate
 ```
 
-Test the template locally:
-
-```sh
-npx @react-native-community/cli@latest init MyApp --template file:/absolute/path/to/react-native-boilerplate
-```
-
 To work on the app contained inside the template:
 
 ```sh
@@ -150,26 +144,6 @@ template/              Files copied into generated apps
 template/_gitignore    Becomes .gitignore in generated apps
 template/_npmrc        Becomes .npmrc in generated apps
 template/_nvmrc        Becomes .nvmrc in generated apps
-```
-
-## npm Package
-
-If this template is published to npm, use:
-
-```sh
-npx @react-native-community/cli@latest init MyApp --template @tunicalabs-media/react-native-boilerplate
-```
-
-Check the package contents before publishing:
-
-```sh
-npm pack --dry-run
-```
-
-Publish publicly:
-
-```sh
-npm publish --access public
 ```
 
 ## Styling
