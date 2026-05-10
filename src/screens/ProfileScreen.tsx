@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { ScreenFrame } from '../components/ScreenFrame';
 import { commonStyles } from '../theme/commonStyles';
 import { colors } from '../theme/colors';
+import { fonts } from '../theme/fonts';
 
 export function ProfileScreen() {
   return (
@@ -30,12 +31,13 @@ const styles = StyleSheet.create({
   },
   cardLabel: {
     color: colors.muted,
+    fontFamily: fonts.montserrat.regular,
     fontSize: 13,
     marginBottom: 4,
   },
   cardValue: {
     color: colors.text,
+    fontFamily: fonts.montserrat.bold,
     fontSize: 20,
-    fontWeight: '700',
   },
 });

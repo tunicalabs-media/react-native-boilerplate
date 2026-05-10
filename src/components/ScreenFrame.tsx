@@ -3,6 +3,7 @@ import { Text, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '../theme/colors';
+import { fonts } from '../theme/fonts';
 
 type ScreenFrameProps = {
   eyebrow: string;
@@ -33,16 +34,16 @@ const styles = StyleSheet.create({
   },
   eyebrow: {
     color: colors.primary,
+    fontFamily: fonts.montserrat.bold,
     fontSize: 13,
-    fontWeight: '700',
     letterSpacing: 0,
     marginBottom: 8,
     textTransform: 'uppercase',
   },
   title: {
     color: colors.text,
+    fontFamily: fonts.montserrat.extraBold,
     fontSize: 30,
-    fontWeight: '800',
     marginBottom: 16,
   },
 });

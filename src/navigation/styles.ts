@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native-unistyles';
 import { colors } from '../theme/colors';
+import { fonts } from '../theme/fonts';
 
 export const tabBarStyles = StyleSheet.create({
   container: {
@@ -9,7 +10,7 @@ export const tabBarStyles = StyleSheet.create({
     paddingTop: 8,
   },
   label: {
+    fontFamily: fonts.montserrat.bold,
     fontSize: 12,
-    fontWeight: '700',
   },
 });

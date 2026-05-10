@@ -12,6 +12,7 @@ import {
 } from '../store/slices/preferencesSlice';
 import { commonStyles } from '../theme/commonStyles';
 import { colors } from '../theme/colors';
+import { fonts } from '../theme/fonts';
 
 type ThemePreference = 'system' | 'light' | 'dark';
 
@@ -164,11 +165,12 @@ const styles = StyleSheet.create({
   },
   settingLabel: {
     color: colors.text,
+    fontFamily: fonts.montserrat.semiBold,
     fontSize: 16,
-    fontWeight: '600',
   },
   settingValue: {
     color: colors.muted,
+    fontFamily: fonts.montserrat.regular,
     fontSize: 15,
     textTransform: 'capitalize',
   },
@@ -231,8 +233,8 @@ const themeChoiceStyles = StyleSheet.create({
   },
   optionLabel: {
     color: colors.text,
+    fontFamily: fonts.montserrat.bold,
     fontSize: 13,
-    fontWeight: '700',
     variants: {
       disabled: {
         true: {},

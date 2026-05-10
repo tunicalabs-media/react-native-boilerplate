@@ -4,6 +4,7 @@ import { StyleSheet } from 'react-native-unistyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { colors } from '../theme/colors';
+import { fonts } from '../theme/fonts';
 import type { RootStackParamList } from '../navigation/types';
 
 type SplashScreenProps = NativeStackScreenProps<RootStackParamList, 'Splash'>;
@@ -47,17 +48,18 @@ const styles = StyleSheet.create({
   },
   logoText: {
     color: colors.surface,
+    fontFamily: fonts.montserrat.extraBold,
     fontSize: 24,
-    fontWeight: '800',
   },
   title: {
     color: colors.text,
+    fontFamily: fonts.montserrat.extraBold,
     fontSize: 28,
-    fontWeight: '800',
     marginBottom: 8,
   },
   subtitle: {
     color: colors.muted,
+    fontFamily: fonts.montserrat.regular,
     fontSize: 16,
   },
 });
