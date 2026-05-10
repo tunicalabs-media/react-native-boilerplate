@@ -21,6 +21,7 @@
   "files": [
     "template",
     "template.config.js",
+    "post-init.js",
     "README.md"
   ]
 }

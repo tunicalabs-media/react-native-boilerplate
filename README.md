@@ -52,6 +52,7 @@ npx @react-native-community/cli@latest init MyApp --template file:/absolute/path
 ```
 
 The React Native CLI replaces the `NativeBoilerplate` placeholder with the app name passed to `init`.
+During installation, the template prints a Tunica-branded success message before dependencies are installed.
 
 Repository:
 
