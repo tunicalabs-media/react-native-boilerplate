@@ -1,7 +1,7 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {SafeAreaView} from 'react-native-safe-area-context';
-import {colors} from '../theme/colors';
+import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { colors } from '../theme/colors';
 
 type ScreenFrameProps = {
   eyebrow: string;
@@ -9,7 +9,7 @@ type ScreenFrameProps = {
   children: React.ReactNode;
 };
 
-export function ScreenFrame({eyebrow, title, children}: ScreenFrameProps) {
+export function ScreenFrame({ eyebrow, title, children }: ScreenFrameProps) {
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.content}>
