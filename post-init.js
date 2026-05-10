@@ -18,7 +18,14 @@ if (fs.existsSync(nvmrcSource) && !fs.existsSync(nvmrcTarget)) {
 
 const lines = [
   '',
-  '  TUNICA REACT NATIVE BOILERPLATE',
+  '  _______             _',
+  ' |__   __|           (_)',
+  '    | |_   _ _ __  _  ___ __ __ _',
+  "    | | | | | '_ \\| |/ __/ _` |",
+  '    | | |_| | | | | | (_| (_| |',
+  '    |_|\\__,_|_| |_|_|\\___\\__,_|',
+  '',
+  '  Tunica React Native Boilerplate',
   '',
   '  Tunica React Native Boilerplate initialized successfully.',
   '',
