@@ -20,7 +20,7 @@ const red = '\x1b[38;2;244;15;15m';
 const reset = '\x1b[0m';
 
 const banner = [
-  '  TTTTT  U   U  N   N  III  CCCC   AAAAA',
+  '  TTTTT  U   U  N   N  III  CCCC   AAA',
   '    T    U   U  NN  N   I  C      A   A',
   '    T    U   U  N N N   I  C      AAAAA',
   '    T    U   U  N  NN   I  C      A   A',
