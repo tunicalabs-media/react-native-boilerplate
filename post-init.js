@@ -16,13 +16,20 @@ if (fs.existsSync(nvmrcSource) && !fs.existsSync(nvmrcTarget)) {
   fs.renameSync(nvmrcSource, nvmrcTarget);
 }
 
+const red = '\x1b[38;2;244;15;15m';
+const reset = '\x1b[0m';
+
+const banner = [
+  '  TTTTT  U   U  N   N  III  CCCC   AAAAA',
+  '    T    U   U  NN  N   I  C      A   A',
+  '    T    U   U  N N N   I  C      AAAAA',
+  '    T    U   U  N  NN   I  C      A   A',
+  '    T     UUU   N   N  III  CCCC  A   A',
+].join('\n');
+
 const lines = [
   '',
-  '  _________  __  __  _   __  ____  ______  ___ ',
-  ' /_  __/ / / / / / / | / / /  _/ / ____/ /   |',
-  '  / / / / / / / / /  |/ /  / /  / /     / /| |',
-  ' / / / /_/ / /_/ / /|  / _/ /  / /___  / ___ |',
-  '/_/  \\____/\\____/_/ |_/ /___/  \\___/ /  |_|',
+  `${red}${banner}${reset}`,
   '',
   '  Tunica React Native Boilerplate initialized successfully.',
   '',
