@@ -2,8 +2,9 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import { StyleSheet } from 'react-native-unistyles';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { colors } from '../theme/colors';
+import type { ThemeColors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
+import { useThemeColors } from '../theme/ThemeProvider';
 
 type ScreenFrameProps = {
   eyebrow: string;
@@ -12,6 +13,9 @@ type ScreenFrameProps = {
 };
 
 export function ScreenFrame({ eyebrow, title, children }: ScreenFrameProps) {
+  const colors = useThemeColors();
+  const styles = React.useMemo(() => createStyles(colors), [colors]);
+
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.content}>
@@ -23,27 +27,28 @@ export function ScreenFrame({ eyebrow, title, children }: ScreenFrameProps) {
   );
 }
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  content: {
-    flex: 1,
-    padding: 24,
-  },
-  eyebrow: {
-    color: colors.primary,
-    fontFamily: fonts.montserrat.bold,
-    fontSize: 13,
-    letterSpacing: 0,
-    marginBottom: 8,
-    textTransform: 'uppercase',
-  },
-  title: {
-    color: colors.text,
-    fontFamily: fonts.montserrat.extraBold,
-    fontSize: 30,
-    marginBottom: 16,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    screen: {
+      flex: 1,
+      backgroundColor: colors.background,
+    },
+    content: {
+      flex: 1,
+      padding: 24,
+    },
+    eyebrow: {
+      color: colors.primary,
+      fontFamily: fonts.montserrat.bold,
+      fontSize: 13,
+      letterSpacing: 0,
+      marginBottom: 8,
+      textTransform: 'uppercase',
+    },
+    title: {
+      color: colors.text,
+      fontFamily: fonts.montserrat.extraBold,
+      fontSize: 30,
+      marginBottom: 16,
+    },
+  });

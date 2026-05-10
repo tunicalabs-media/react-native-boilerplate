@@ -4,13 +4,16 @@ import { HomeIcon, ProfileIcon, SettingsIcon } from '../icons';
 import { HomeScreen } from '../screens/HomeScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { SettingsScreen } from '../screens/SettingsScreen';
-import { colors } from '../theme/colors';
-import { tabBarStyles } from '../lib/styles';
+import { useTabBarStyles } from '../lib/styles';
+import { useThemeColors } from '../theme/ThemeProvider';
 import type { MainTabParamList } from './types';
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
 export function MainTabs() {
+  const colors = useThemeColors();
+  const tabBarStyles = useTabBarStyles();
+
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({

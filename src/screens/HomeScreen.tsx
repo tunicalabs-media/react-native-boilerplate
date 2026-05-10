@@ -4,13 +4,17 @@ import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
 import { StyleSheet } from 'react-native-unistyles';
 import { useNavigation } from '@react-navigation/native';
 import { ScreenFrame } from '../components/ScreenFrame';
-import { commonStyles } from '../theme/commonStyles';
-import { colors } from '../theme/colors';
+import { useCommonStyles } from '../theme/commonStyles';
+import type { ThemeColors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
+import { useThemeColors } from '../theme/ThemeProvider';
 import type { RootNavigation } from '../navigation/types';
 
 export function HomeScreen() {
   const navigation = useNavigation<RootNavigation>();
+  const colors = useThemeColors();
+  const commonStyles = useCommonStyles();
+  const styles = React.useMemo(() => createStyles(colors), [colors]);
 
   return (
     <ScreenFrame eyebrow="Home" title="Welcome back">
@@ -53,23 +57,24 @@ export function HomeScreen() {
   );
 }
 
-const styles = StyleSheet.create({
-  action: {
-    alignSelf: 'flex-start',
-    marginTop: 24,
-  },
-  sectionTitle: {
-    color: colors.text,
-    fontFamily: fonts.montserrat.bold,
-    fontSize: 15,
-    marginBottom: 16,
-  },
-  skeletonCard: {
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderRadius: 8,
-    borderWidth: 1,
-    marginTop: 24,
-    padding: 16,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    action: {
+      alignSelf: 'flex-start',
+      marginTop: 24,
+    },
+    sectionTitle: {
+      color: colors.text,
+      fontFamily: fonts.montserrat.bold,
+      fontSize: 15,
+      marginBottom: 16,
+    },
+    skeletonCard: {
+      backgroundColor: colors.surface,
+      borderColor: colors.border,
+      borderRadius: 8,
+      borderWidth: 1,
+      marginTop: 24,
+      padding: 16,
+    },
+  });

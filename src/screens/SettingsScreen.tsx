@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button, Pressable, Text, View } from 'react-native';
 import Toast from 'react-native-simple-toast';
 import { StyleSheet, UnistylesVariants } from 'react-native-unistyles';
@@ -6,14 +6,14 @@ import { ScreenFrame } from '../components/ScreenFrame';
 import { MoonIcon, SunIcon } from '../icons';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {
-  loadPreferences,
   savePreferences,
   setNotificationsEnabled,
   setTheme,
 } from '../store/slices/preferencesSlice';
-import { commonStyles } from '../theme/commonStyles';
-import { colors } from '../theme/colors';
+import { useCommonStyles } from '../theme/commonStyles';
+import type { ThemeColors } from '../theme/colors';
 import { fonts } from '../theme/fonts';
+import { useThemeColors } from '../theme/ThemeProvider';
 
 type ThemePreference = 'system' | 'light' | 'dark';
 
@@ -29,13 +29,12 @@ const themeOptions: Array<{
 
 export function SettingsScreen() {
   const dispatch = useAppDispatch();
+  const colors = useThemeColors();
+  const commonStyles = useCommonStyles();
+  const styles = React.useMemo(() => createStyles(colors), [colors]);
   const { isLoaded, notificationsEnabled, theme } = useAppSelector(
     state => state.preferences,
   );
-
-  useEffect(() => {
-    dispatch(loadPreferences());
-  }, [dispatch]);
 
   const handleToggleNotifications = () => {
     const nextNotificationsEnabled = !notificationsEnabled;
@@ -124,6 +123,12 @@ function ThemeChoice({
   selected,
   tone,
 }: ThemeChoiceProps) {
+  const colors = useThemeColors();
+  const themeChoiceStyles = React.useMemo(
+    () => createThemeChoiceStyles(colors),
+    [colors],
+  );
+
   themeChoiceStyles.useVariants({
     disabled,
     selected,
@@ -157,110 +162,114 @@ function ThemeChoice({
   );
 }
 
-const styles = StyleSheet.create({
-  settingRow: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderRadius: 8,
-    borderWidth: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginTop: 12,
-    padding: 16,
-  },
-  settingLabel: {
-    color: colors.text,
-    fontFamily: fonts.montserrat.semiBold,
-    fontSize: 16,
-  },
-  settingValue: {
-    color: colors.muted,
-    fontFamily: fonts.montserrat.regular,
-    fontSize: 15,
-    textTransform: 'capitalize',
-  },
-  actions: {
-    alignItems: 'flex-start',
-    marginTop: 24,
-  },
-  themeSwitcher: {
-    flexDirection: 'row',
-    gap: 8,
-    marginTop: 16,
-  },
-});
+const createStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    settingRow: {
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      borderColor: colors.border,
+      borderRadius: 8,
+      borderWidth: 1,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: 12,
+      padding: 16,
+    },
+    settingLabel: {
+      color: colors.text,
+      fontFamily: fonts.montserrat.semiBold,
+      fontSize: 16,
+    },
+    settingValue: {
+      color: colors.muted,
+      fontFamily: fonts.montserrat.regular,
+      fontSize: 15,
+      textTransform: 'capitalize',
+    },
+    actions: {
+      alignItems: 'flex-start',
+      marginTop: 24,
+    },
+    themeSwitcher: {
+      flexDirection: 'row',
+      gap: 8,
+      marginTop: 16,
+    },
+  });
 
-const themeChoiceStyles = StyleSheet.create({
-  option: {
-    alignItems: 'center',
-    backgroundColor: colors.surface,
-    borderColor: colors.border,
-    borderRadius: 8,
-    borderWidth: 1,
-    flex: 1,
-    gap: 8,
-    minHeight: 82,
-    paddingHorizontal: 10,
-    paddingVertical: 12,
-    variants: {
-      disabled: {
-        true: {
-          opacity: 0.5,
+const createThemeChoiceStyles = (colors: ThemeColors) =>
+  StyleSheet.create({
+    option: {
+      alignItems: 'center',
+      backgroundColor: colors.surface,
+      borderColor: colors.border,
+      borderRadius: 8,
+      borderWidth: 1,
+      flex: 1,
+      gap: 8,
+      minHeight: 82,
+      paddingHorizontal: 10,
+      paddingVertical: 12,
+      variants: {
+        disabled: {
+          true: {
+            opacity: 0.5,
+          },
+          false: {},
         },
-        false: {},
-      },
-      selected: {
-        true: {
-          backgroundColor: colors.primary,
-          borderColor: colors.primary,
+        selected: {
+          true: {
+            backgroundColor: colors.primary,
+            borderColor: colors.primary,
+          },
+          false: {},
         },
-        false: {},
-      },
-      tone: {
-        system: {},
-        light: {},
-        dark: {
-          backgroundColor: colors.text,
-          borderColor: colors.text,
+        tone: {
+          system: {},
+          light: {},
+          dark: {
+            backgroundColor: colors.text,
+            borderColor: colors.text,
+          },
         },
       },
     },
-  },
-  icon: {
-    alignItems: 'center',
-    height: 22,
-    justifyContent: 'center',
-  },
-  systemIcon: {
-    alignItems: 'center',
-    flexDirection: 'row',
-    gap: 2,
-  },
-  optionLabel: {
-    color: colors.text,
-    fontFamily: fonts.montserrat.bold,
-    fontSize: 13,
-    variants: {
-      disabled: {
-        true: {},
-        false: {},
-      },
-      selected: {
-        true: {
-          color: colors.surface,
+    icon: {
+      alignItems: 'center',
+      height: 22,
+      justifyContent: 'center',
+    },
+    systemIcon: {
+      alignItems: 'center',
+      flexDirection: 'row',
+      gap: 2,
+    },
+    optionLabel: {
+      color: colors.text,
+      fontFamily: fonts.montserrat.bold,
+      fontSize: 13,
+      variants: {
+        disabled: {
+          true: {},
+          false: {},
         },
-        false: {},
-      },
-      tone: {
-        system: {},
-        light: {},
-        dark: {
-          color: colors.surface,
+        selected: {
+          true: {
+            color: colors.surface,
+          },
+          false: {},
+        },
+        tone: {
+          system: {},
+          light: {},
+          dark: {
+            color: colors.surface,
+          },
         },
       },
     },
-  },
-});
+  });
 
-type ThemeChoiceVariants = UnistylesVariants<typeof themeChoiceStyles>;
+type ThemeChoiceVariants = UnistylesVariants<
+  ReturnType<typeof createThemeChoiceStyles>
+>;
