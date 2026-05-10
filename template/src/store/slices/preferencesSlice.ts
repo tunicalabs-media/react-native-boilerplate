@@ -1,22 +1,22 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-const PREFERENCES_STORAGE_KEY = 'preferences';
+const PREFERENCES_STORAGE_KEY = "preferences";
 
 type PreferencesState = {
   isLoaded: boolean;
   notificationsEnabled: boolean;
-  theme: 'system' | 'light' | 'dark';
+  theme: "system" | "light" | "dark";
 };
 
 const initialState: PreferencesState = {
   isLoaded: false,
   notificationsEnabled: true,
-  theme: 'system',
+  theme: "system",
 };
 
 export const loadPreferences = createAsyncThunk(
-  'preferences/loadPreferences',
+  "preferences/loadPreferences",
   async () => {
     const storedPreferences = await AsyncStorage.getItem(
       PREFERENCES_STORAGE_KEY,
@@ -34,8 +34,8 @@ export const loadPreferences = createAsyncThunk(
 );
 
 export const savePreferences = createAsyncThunk(
-  'preferences/savePreferences',
-  async (preferences: Omit<PreferencesState, 'isLoaded'>) => {
+  "preferences/savePreferences",
+  async (preferences: Omit<PreferencesState, "isLoaded">) => {
     await AsyncStorage.setItem(
       PREFERENCES_STORAGE_KEY,
       JSON.stringify(preferences),
@@ -46,24 +46,24 @@ export const savePreferences = createAsyncThunk(
 );
 
 const preferencesSlice = createSlice({
-  name: 'preferences',
+  name: "preferences",
   initialState,
   reducers: {
     setNotificationsEnabled(state, action: PayloadAction<boolean>) {
       state.notificationsEnabled = action.payload;
     },
-    setTheme(state, action: PayloadAction<PreferencesState['theme']>) {
+    setTheme(state, action: PayloadAction<PreferencesState["theme"]>) {
       state.theme = action.payload;
     },
   },
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(loadPreferences.fulfilled, (state, action) => {
         state.isLoaded = true;
         state.notificationsEnabled = action.payload.notificationsEnabled;
         state.theme = action.payload.theme;
       })
-      .addCase(loadPreferences.rejected, state => {
+      .addCase(loadPreferences.rejected, (state) => {
         state.isLoaded = true;
       })
       .addCase(savePreferences.fulfilled, (state, action) => {

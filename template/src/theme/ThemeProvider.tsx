@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useMemo } from 'react';
-import { useColorScheme } from 'react-native';
-import { darkColors, lightColors, ThemeColors } from './colors';
-import { useAppSelector } from '../store/hooks';
+import React, { createContext, useContext, useMemo } from "react";
+import { useColorScheme } from "react-native";
+import { darkColors, lightColors, ThemeColors } from "./colors";
+import { useAppSelector } from "../store/hooks";
 
-type ResolvedTheme = 'light' | 'dark';
+type ResolvedTheme = "light" | "dark";
 
 type ThemeContextValue = {
   colors: ThemeColors;
@@ -12,23 +12,23 @@ type ThemeContextValue = {
 
 const ThemeContext = createContext<ThemeContextValue>({
   colors: lightColors,
-  resolvedTheme: 'light',
+  resolvedTheme: "light",
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const systemColorScheme = useColorScheme();
-  const themePreference = useAppSelector(state => state.preferences.theme);
+  const themePreference = useAppSelector((state) => state.preferences.theme);
 
   const resolvedTheme: ResolvedTheme =
-    themePreference === 'system'
-      ? systemColorScheme === 'dark'
-        ? 'dark'
-        : 'light'
+    themePreference === "system"
+      ? systemColorScheme === "dark"
+        ? "dark"
+        : "light"
       : themePreference;
 
   const value = useMemo(
     () => ({
-      colors: resolvedTheme === 'dark' ? darkColors : lightColors,
+      colors: resolvedTheme === "dark" ? darkColors : lightColors,
       resolvedTheme,
     }),
     [resolvedTheme],

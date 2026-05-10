@@ -1,11 +1,11 @@
-import React from 'react';
-import { Text } from 'react-native';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import { ScreenFrame } from '../components/ScreenFrame';
-import { useCommonStyles } from '../theme/commonStyles';
-import type { RootStackParamList } from '../navigation/types';
+import React from "react";
+import { Text } from "react-native";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { ScreenFrame } from "../components/ScreenFrame";
+import { useCommonStyles } from "../theme/commonStyles";
+import type { RootStackParamList } from "../navigation/types";
 
-type DetailsScreenProps = NativeStackScreenProps<RootStackParamList, 'Details'>;
+type DetailsScreenProps = NativeStackScreenProps<RootStackParamList, "Details">;
 
 export function DetailsScreen({ route }: DetailsScreenProps) {
   const commonStyles = useCommonStyles();

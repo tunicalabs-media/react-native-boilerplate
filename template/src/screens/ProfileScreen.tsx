@@ -1,11 +1,11 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
-import { ScreenFrame } from '../components/ScreenFrame';
-import { useCommonStyles } from '../theme/commonStyles';
-import type { ThemeColors } from '../theme/colors';
-import { fonts } from '../theme/fonts';
-import { useThemeColors } from '../theme/ThemeProvider';
+import React from "react";
+import { Text, View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+import { ScreenFrame } from "../components/ScreenFrame";
+import { useCommonStyles } from "../theme/commonStyles";
+import type { ThemeColors } from "../theme/colors";
+import { fonts } from "../theme/fonts";
+import { useThemeColors } from "../theme/ThemeProvider";
 
 export function ProfileScreen() {
   const colors = useThemeColors();

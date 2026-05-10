@@ -1,6 +1,6 @@
-import React from 'react';
-import Svg, { Path } from 'react-native-svg';
-import type { SvgProps } from 'react-native-svg';
+import React from "react";
+import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
 
 type IconProps = SvgProps & {
   color?: string;
@@ -8,7 +8,7 @@ type IconProps = SvgProps & {
 };
 
 export function HomeIcon({
-  color = '#0F172A',
+  color = "#0F172A",
   size = 24,
   ...props
 }: IconProps) {

@@ -1,13 +1,13 @@
-import React from 'react';
-import Svg, { Path } from 'react-native-svg';
-import type { SvgProps } from 'react-native-svg';
+import React from "react";
+import Svg, { Path } from "react-native-svg";
+import type { SvgProps } from "react-native-svg";
 
 type IconProps = SvgProps & {
   color?: string;
   size?: number;
 };
 
-export function SunIcon({ color = '#0F172A', size = 20, ...props }: IconProps) {
+export function SunIcon({ color = "#0F172A", size = 20, ...props }: IconProps) {
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" fill="none" {...props}>
       <Path

@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet } from 'react-native-unistyles';
-import type { ThemeColors } from '../theme/colors';
-import { fonts } from '../theme/fonts';
-import { useThemeColors } from '../theme/ThemeProvider';
+import React from "react";
+import { StyleSheet } from "react-native-unistyles";
+import type { ThemeColors } from "../theme/colors";
+import { fonts } from "../theme/fonts";
+import { useThemeColors } from "../theme/ThemeProvider";
 
 export function useTabBarStyles() {
   const colors = useThemeColors();

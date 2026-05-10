@@ -1,8 +1,8 @@
-import React from 'react';
-import { StyleSheet } from 'react-native-unistyles';
-import type { ThemeColors } from './colors';
-import { fonts } from './fonts';
-import { useThemeColors } from './ThemeProvider';
+import React from "react";
+import { StyleSheet } from "react-native-unistyles";
+import type { ThemeColors } from "./colors";
+import { fonts } from "./fonts";
+import { useThemeColors } from "./ThemeProvider";
 
 export function useCommonStyles() {
   const colors = useThemeColors();

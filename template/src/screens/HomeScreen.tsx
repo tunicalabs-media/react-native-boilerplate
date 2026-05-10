@@ -1,14 +1,14 @@
-import React from 'react';
-import { Button, Text, View } from 'react-native';
-import SkeletonPlaceholder from 'react-native-skeleton-placeholder';
-import { StyleSheet } from 'react-native-unistyles';
-import { useNavigation } from '@react-navigation/native';
-import { ScreenFrame } from '../components/ScreenFrame';
-import { useCommonStyles } from '../theme/commonStyles';
-import type { ThemeColors } from '../theme/colors';
-import { fonts } from '../theme/fonts';
-import { useThemeColors } from '../theme/ThemeProvider';
-import type { RootNavigation } from '../navigation/types';
+import React from "react";
+import { Button, Text, View } from "react-native";
+import SkeletonPlaceholder from "react-native-skeleton-placeholder";
+import { StyleSheet } from "react-native-unistyles";
+import { useNavigation } from "@react-navigation/native";
+import { ScreenFrame } from "../components/ScreenFrame";
+import { useCommonStyles } from "../theme/commonStyles";
+import type { ThemeColors } from "../theme/colors";
+import { fonts } from "../theme/fonts";
+import { useThemeColors } from "../theme/ThemeProvider";
+import type { RootNavigation } from "../navigation/types";
 
 export function HomeScreen() {
   const navigation = useNavigation<RootNavigation>();
@@ -50,7 +50,7 @@ export function HomeScreen() {
         <Button
           title="Open details"
           color={colors.primary}
-          onPress={() => navigation.navigate('Details', { title: 'Details' })}
+          onPress={() => navigation.navigate("Details", { title: "Details" })}
         />
       </View>
     </ScreenFrame>
@@ -60,7 +60,7 @@ export function HomeScreen() {
 const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     action: {
-      alignSelf: 'flex-start',
+      alignSelf: "flex-start",
       marginTop: 24,
     },
     sectionTitle: {

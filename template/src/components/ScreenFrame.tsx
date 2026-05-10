@@ -1,10 +1,10 @@
-import React from 'react';
-import { Text, View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import type { ThemeColors } from '../theme/colors';
-import { fonts } from '../theme/fonts';
-import { useThemeColors } from '../theme/ThemeProvider';
+import React from "react";
+import { Text, View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+import { SafeAreaView } from "react-native-safe-area-context";
+import type { ThemeColors } from "../theme/colors";
+import { fonts } from "../theme/fonts";
+import { useThemeColors } from "../theme/ThemeProvider";
 
 type ScreenFrameProps = {
   eyebrow: string;
@@ -43,7 +43,7 @@ const createStyles = (colors: ThemeColors) =>
       fontSize: 13,
       letterSpacing: 0,
       marginBottom: 8,
-      textTransform: 'uppercase',
+      textTransform: "uppercase",
     },
     title: {
       color: colors.text,

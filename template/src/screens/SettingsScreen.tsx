@@ -1,30 +1,30 @@
-import React from 'react';
-import { Button, Pressable, Text, View } from 'react-native';
-import Toast from 'react-native-simple-toast';
-import { StyleSheet, UnistylesVariants } from 'react-native-unistyles';
-import { ScreenFrame } from '../components/ScreenFrame';
-import { MoonIcon, SunIcon } from '../icons';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
+import React from "react";
+import { Button, Pressable, Text, View } from "react-native";
+import Toast from "react-native-simple-toast";
+import { StyleSheet, UnistylesVariants } from "react-native-unistyles";
+import { ScreenFrame } from "../components/ScreenFrame";
+import { MoonIcon, SunIcon } from "../icons";
+import { useAppDispatch, useAppSelector } from "../store/hooks";
 import {
   savePreferences,
   setNotificationsEnabled,
   setTheme,
-} from '../store/slices/preferencesSlice';
-import { useCommonStyles } from '../theme/commonStyles';
-import type { ThemeColors } from '../theme/colors';
-import { fonts } from '../theme/fonts';
-import { useThemeColors } from '../theme/ThemeProvider';
+} from "../store/slices/preferencesSlice";
+import { useCommonStyles } from "../theme/commonStyles";
+import type { ThemeColors } from "../theme/colors";
+import { fonts } from "../theme/fonts";
+import { useThemeColors } from "../theme/ThemeProvider";
 
-type ThemePreference = 'system' | 'light' | 'dark';
+type ThemePreference = "system" | "light" | "dark";
 
 const themeOptions: Array<{
-  icon: 'system' | 'sun' | 'moon';
+  icon: "system" | "sun" | "moon";
   label: string;
   value: ThemePreference;
 }> = [
-  { icon: 'system', label: 'System', value: 'system' },
-  { icon: 'sun', label: 'Light', value: 'light' },
-  { icon: 'moon', label: 'Dark', value: 'dark' },
+  { icon: "system", label: "System", value: "system" },
+  { icon: "sun", label: "Light", value: "light" },
+  { icon: "moon", label: "Dark", value: "dark" },
 ];
 
 export function SettingsScreen() {
@@ -33,7 +33,7 @@ export function SettingsScreen() {
   const commonStyles = useCommonStyles();
   const styles = React.useMemo(() => createStyles(colors), [colors]);
   const { isLoaded, notificationsEnabled, theme } = useAppSelector(
-    state => state.preferences,
+    (state) => state.preferences,
   );
 
   const handleToggleNotifications = () => {
@@ -47,7 +47,7 @@ export function SettingsScreen() {
       }),
     );
     Toast.show(
-      `Notifications ${nextNotificationsEnabled ? 'enabled' : 'disabled'}`,
+      `Notifications ${nextNotificationsEnabled ? "enabled" : "disabled"}`,
       Toast.SHORT,
     );
   };
@@ -75,7 +75,7 @@ export function SettingsScreen() {
       <View style={styles.settingRow}>
         <Text style={styles.settingLabel}>Push notifications</Text>
         <Text style={styles.settingValue}>
-          {notificationsEnabled ? 'Enabled' : 'Disabled'}
+          {notificationsEnabled ? "Enabled" : "Disabled"}
         </Text>
       </View>
       <View style={styles.settingRow}>
@@ -83,7 +83,7 @@ export function SettingsScreen() {
         <Text style={styles.settingValue}>{theme}</Text>
       </View>
       <View style={styles.themeSwitcher}>
-        {themeOptions.map(option => (
+        {themeOptions.map((option) => (
           <ThemeChoice
             key={option.value}
             icon={option.icon}
@@ -107,9 +107,9 @@ export function SettingsScreen() {
   );
 }
 
-type ThemeChoiceProps = Omit<ThemeChoiceVariants, 'disabled' | 'selected'> & {
+type ThemeChoiceProps = Omit<ThemeChoiceVariants, "disabled" | "selected"> & {
   disabled: boolean;
-  icon: 'system' | 'sun' | 'moon';
+  icon: "system" | "sun" | "moon";
   label: string;
   onPress: () => void;
   selected: boolean;
@@ -146,9 +146,9 @@ function ThemeChoice({
       style={themeChoiceStyles.option}
     >
       <View style={themeChoiceStyles.icon}>
-        {icon === 'sun' ? (
+        {icon === "sun" ? (
           <SunIcon color={iconColor} size={18} />
-        ) : icon === 'moon' ? (
+        ) : icon === "moon" ? (
           <MoonIcon color={iconColor} size={18} />
         ) : (
           <View style={themeChoiceStyles.systemIcon}>
@@ -165,13 +165,13 @@ function ThemeChoice({
 const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     settingRow: {
-      alignItems: 'center',
+      alignItems: "center",
       backgroundColor: colors.surface,
       borderColor: colors.border,
       borderRadius: 8,
       borderWidth: 1,
-      flexDirection: 'row',
-      justifyContent: 'space-between',
+      flexDirection: "row",
+      justifyContent: "space-between",
       marginTop: 12,
       padding: 16,
     },
@@ -184,14 +184,14 @@ const createStyles = (colors: ThemeColors) =>
       color: colors.muted,
       fontFamily: fonts.montserrat.regular,
       fontSize: 15,
-      textTransform: 'capitalize',
+      textTransform: "capitalize",
     },
     actions: {
-      alignItems: 'flex-start',
+      alignItems: "flex-start",
       marginTop: 24,
     },
     themeSwitcher: {
-      flexDirection: 'row',
+      flexDirection: "row",
       gap: 8,
       marginTop: 16,
     },
@@ -200,7 +200,7 @@ const createStyles = (colors: ThemeColors) =>
 const createThemeChoiceStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     option: {
-      alignItems: 'center',
+      alignItems: "center",
       backgroundColor: colors.surface,
       borderColor: colors.border,
       borderRadius: 8,
@@ -235,13 +235,13 @@ const createThemeChoiceStyles = (colors: ThemeColors) =>
       },
     },
     icon: {
-      alignItems: 'center',
+      alignItems: "center",
       height: 22,
-      justifyContent: 'center',
+      justifyContent: "center",
     },
     systemIcon: {
-      alignItems: 'center',
-      flexDirection: 'row',
+      alignItems: "center",
+      flexDirection: "row",
       gap: 2,
     },
     optionLabel: {

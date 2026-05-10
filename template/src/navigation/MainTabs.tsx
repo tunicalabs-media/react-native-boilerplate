@@ -1,12 +1,12 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { HomeIcon, ProfileIcon, SettingsIcon } from '../icons';
-import { HomeScreen } from '../screens/HomeScreen';
-import { ProfileScreen } from '../screens/ProfileScreen';
-import { SettingsScreen } from '../screens/SettingsScreen';
-import { useTabBarStyles } from '../lib/styles';
-import { useThemeColors } from '../theme/ThemeProvider';
-import type { MainTabParamList } from './types';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { HomeIcon, ProfileIcon, SettingsIcon } from "../icons";
+import { HomeScreen } from "../screens/HomeScreen";
+import { ProfileScreen } from "../screens/ProfileScreen";
+import { SettingsScreen } from "../screens/SettingsScreen";
+import { useTabBarStyles } from "../lib/styles";
+import { useThemeColors } from "../theme/ThemeProvider";
+import type { MainTabParamList } from "./types";
 
 const Tab = createBottomTabNavigator<MainTabParamList>();
 
@@ -21,11 +21,11 @@ export function MainTabs() {
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.muted,
         tabBarIcon: ({ color, size }) => {
-          if (route.name === 'Home') {
+          if (route.name === "Home") {
             return <HomeIcon color={color} size={size} />;
           }
 
-          if (route.name === 'Profile') {
+          if (route.name === "Profile") {
             return <ProfileIcon color={color} size={size} />;
           }
 

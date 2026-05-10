@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
-import { Text, View } from 'react-native';
-import { StyleSheet } from 'react-native-unistyles';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { ThemeColors } from '../theme/colors';
-import { fonts } from '../theme/fonts';
-import { useThemeColors } from '../theme/ThemeProvider';
-import type { RootStackParamList } from '../navigation/types';
+import React, { useEffect } from "react";
+import { Text, View } from "react-native";
+import { StyleSheet } from "react-native-unistyles";
+import { SafeAreaView } from "react-native-safe-area-context";
+import type { NativeStackScreenProps } from "@react-navigation/native-stack";
+import type { ThemeColors } from "../theme/colors";
+import { fonts } from "../theme/fonts";
+import { useThemeColors } from "../theme/ThemeProvider";
+import type { RootStackParamList } from "../navigation/types";
 
-type SplashScreenProps = NativeStackScreenProps<RootStackParamList, 'Splash'>;
+type SplashScreenProps = NativeStackScreenProps<RootStackParamList, "Splash">;
 
 export function SplashScreen({ navigation }: SplashScreenProps) {
   const colors = useThemeColors();
@@ -16,7 +16,7 @@ export function SplashScreen({ navigation }: SplashScreenProps) {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigation.replace('MainTabs');
+      navigation.replace("MainTabs");
     }, 1600);
 
     return () => clearTimeout(timer);
@@ -36,18 +36,18 @@ export function SplashScreen({ navigation }: SplashScreenProps) {
 const createStyles = (colors: ThemeColors) =>
   StyleSheet.create({
     screen: {
-      alignItems: 'center',
+      alignItems: "center",
       backgroundColor: colors.background,
       flex: 1,
-      justifyContent: 'center',
+      justifyContent: "center",
       padding: 24,
     },
     logoMark: {
-      alignItems: 'center',
+      alignItems: "center",
       backgroundColor: colors.primary,
       borderRadius: 16,
       height: 72,
-      justifyContent: 'center',
+      justifyContent: "center",
       marginBottom: 24,
       width: 72,
     },
