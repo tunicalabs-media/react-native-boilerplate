@@ -25,9 +25,9 @@ export function HomeScreen() {
       <View style={styles.skeletonCard}>
         <Text style={styles.sectionTitle}>Skeleton placeholder</Text>
         <SkeletonPlaceholder
-          backgroundColor={colors.border}
+          backgroundColor={colors.skeletonBase}
           borderRadius={8}
-          highlightColor={colors.surface}
+          highlightColor={colors.skeletonHighlight}
         >
           <SkeletonPlaceholder.Item flexDirection="row" alignItems="center">
             <SkeletonPlaceholder.Item
