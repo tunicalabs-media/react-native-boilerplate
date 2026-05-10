@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { ScreenFrame } from '../components/ScreenFrame';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import {

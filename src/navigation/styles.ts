@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { colors } from '../theme/colors';
 
 export const tabBarStyles = StyleSheet.create({
