@@ -46,7 +46,7 @@ It also includes a `.nvmrc` pinned to Node `v24.15.0`, the current Node 24 LTS r
 - Android Studio and Android SDK for Android
 - Xcode and CocoaPods for iOS
 
-Environment setup guide:
+For macOS and Windows setup, follow the official React Native environment setup guide and choose your development OS and target platform:
 
 https://reactnative.dev/docs/set-up-your-environment
 
@@ -129,6 +129,40 @@ This generates:
 - npm package name using `shopapp`
 
 During installation, the template prints a Tunica-branded success message before dependencies are installed.
+
+## Changing the App Name
+
+Prefer choosing the final app name when creating the project:
+
+```sh
+npx @react-native-community/cli@latest init MyNewApp --template https://github.com/tunicalabs-media/react-native-boilerplate.git
+```
+
+If the app has already been generated, update the display name in these files:
+
+- `app.json`: change `displayName`
+- `android/app/src/main/res/values/strings.xml`: change `app_name`
+- `ios/<CurrentAppName>/Info.plist`: change `CFBundleDisplayName`
+- `ios/<CurrentAppName>/LaunchScreen.storyboard`: change the launch screen label text, if you want it to match
+
+Then rebuild the native apps:
+
+```sh
+npm run android-clean
+npm run android
+
+npm run pods
+npm run ios
+```
+
+To fully rename the native project/module name after generation, use a React Native rename tool and then reinstall pods:
+
+```sh
+npx react-native-rename "My New App" -b com.example.mynewapp
+npm run pods
+```
+
+After a full rename, check `app.json`, `package.json`, Android package paths, iOS target names, and bundle identifiers before shipping.
 
 ## Local Template Development
 
