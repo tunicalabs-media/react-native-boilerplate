@@ -1,97 +1,151 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Boilerplate
 
-# Getting Started
+A bare React Native boilerplate with navigation, persisted Redux state, Unistyles styling, SVG icons, and custom Montserrat fonts already wired in.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Stack
 
-## Step 1: Start Metro
+- React Native `0.85.3`
+- React `19.2.3`
+- TypeScript
+- React Navigation with native stack and bottom tabs
+- Redux Toolkit and React Redux
+- AsyncStorage for persisted preferences
+- React Native Unistyles with Babel plugin support
+- React Native SVG
+- Montserrat custom fonts linked from `src/font`
+- ESLint, Prettier, Jest, Husky
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Project Structure
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+```text
+src/
+  components/       Shared UI components
+  font/             Bundled Montserrat font files
+  icons/            react-native-svg icon components
+  navigation/       Root stack, tabs, types, and navigation styles
+  screens/          App screens
+  store/            Redux store, hooks, and slices
+  theme/            Colors, fonts, and shared styles
+```
+
+## Create A New App From This Boilerplate
+
+If this repository is published as a React Native template, create a new app with:
 
 ```sh
-# Using npm
+npx @react-native-community/cli init MyApp --template react-native-boilerplate
+```
+
+If you are using this repository directly from GitHub, clone it and rename the app:
+
+```sh
+git clone <repository-url> MyApp
+cd MyApp
+npm install
+npx react-native-rename "MyApp"
+npm run pods
+```
+
+After renaming, review `app.json`, native bundle identifiers, package name, and app icons before release builds.
+
+## Setup
+
+Install dependencies:
+
+```sh
+npm install
+```
+
+Install iOS pods:
+
+```sh
+npm run pods
+```
+
+Link or refresh native assets after adding fonts:
+
+```sh
+npm run assets
+```
+
+Start Metro:
+
+```sh
 npm start
-
-# OR using Yarn
-yarn start
 ```
 
-## Step 2: Build and run your app
-
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
+Run the app:
 
 ```sh
-# Using npm
 npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## Useful Scripts
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+```sh
+npm run start-reset          # Start Metro with cache reset
+npm run lint                 # Run ESLint
+npm run lint-fix             # Run ESLint with auto-fix
+npm run check-format         # Check Prettier formatting
+npm run format               # Format the project
+npm run android-clean        # Clean Android Gradle build
+npm run android-apk-debug    # Build debug APK
+npm run android-apk-release  # Build release APK
+npm run android-release      # Build Android release
+```
 
-## Step 3: Modify your app
+## Styling
 
-Now that you have successfully run the app, let's make changes!
+The project uses `react-native-unistyles`.
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+- Babel plugin is configured in `babel.config.js`.
+- Shared colors live in `src/theme/colors.ts`.
+- Custom font names live in `src/theme/fonts.ts`.
+- Shared styles live in `src/theme/commonStyles.ts`.
+- Example variants are implemented in `src/screens/SettingsScreen.tsx`.
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+Use Unistyles `StyleSheet` instead of React Native `StyleSheet`:
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+```ts
+import { StyleSheet } from 'react-native-unistyles';
+```
 
-## Congratulations! :tada:
+## Fonts
 
-You've successfully run and modified your React Native App. :partying_face:
+Montserrat fonts are stored in `src/font` and linked through `react-native.config.js`.
 
-### Now what?
+When adding or changing font files, run:
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+```sh
+npm run assets
+```
 
-# Troubleshooting
+Then rebuild the native app.
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Navigation
 
-# Learn More
+The app starts with a root native stack in `src/navigation/RootNavigator.tsx`.
 
-To learn more about React Native, take a look at the following resources:
+- `Splash` routes into `MainTabs`.
+- `MainTabs` contains `Home`, `Profile`, and `Settings`.
+- `Details` is presented from the root stack.
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Navigation types are defined in `src/navigation/types.ts`.
+
+## State
+
+Redux is configured in `src/store/store.ts`.
+
+Preferences are persisted with AsyncStorage in `src/store/slices/preferencesSlice.ts`. The Settings screen demonstrates persisted notification and theme preferences.
+
+## Requirements
+
+- Node `>= 22.11.0`
+- React Native development environment for Android and/or iOS
+- Xcode and CocoaPods for iOS
+- Android Studio and Android SDK for Android
+
+See the official React Native environment guide for platform setup:
+
+https://reactnative.dev/docs/set-up-your-environment
