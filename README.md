@@ -1,5 +1,14 @@
 # Tunica React Native Boilerplate
 
+```text
+████████╗██╗   ██╗███╗   ██╗██╗ ██████╗ █████╗
+╚══██╔══╝██║   ██║████╗  ██║██║██╔════╝██╔══██╗
+   ██║   ██║   ██║██╔██╗ ██║██║██║     ███████║
+   ██║   ██║   ██║██║╚██╗██║██║██║     ██╔══██║
+   ██║   ╚██████╔╝██║ ╚████║██║╚██████╗██║  ██║
+   ╚═╝    ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝╚═╝  ╚═╝
+```
+
 A React Native CLI template with TypeScript, navigation, persisted Redux state, Unistyles, SVG icons, and Montserrat fonts already wired in.
 
 Repository: https://github.com/tunicalabs-media/react-native-boilerplate
@@ -120,19 +129,6 @@ This generates:
 - npm package name using `shopapp`
 
 During installation, the template prints a Tunica-branded success message before dependencies are installed.
-
-The post-init banner is defined in `post-init.js`:
-
-```js
-const banner = [
-'████████╗██╗   ██╗███╗   ██╗██╗ ██████╗ █████╗ ',
-'╚══██╔══╝██║   ██║████╗  ██║██║██╔════╝██╔══██╗',
-'   ██║   ██║   ██║██╔██╗ ██║██║██║     ███████║',
-'   ██║   ██║   ██║██║╚██╗██║██║██║     ██╔══██║',
-'   ██║   ╚██████╔╝██║ ╚████║██║╚██████╗██║  ██║',
-'   ╚═╝    ╚═════╝ ╚═╝  ╚═══╝╚═╝ ╚═════╝╚═╝  ╚═╝',
-].join('\n');
-```
 
 ## Local Template Development
 
