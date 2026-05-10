@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button, Pressable, Text, View } from 'react-native';
+import Toast from 'react-native-simple-toast';
 import { StyleSheet, UnistylesVariants } from 'react-native-unistyles';
 import { ScreenFrame } from '../components/ScreenFrame';
 import { MoonIcon, SunIcon } from '../icons';
@@ -46,6 +47,10 @@ export function SettingsScreen() {
         theme,
       }),
     );
+    Toast.show(
+      `Notifications ${nextNotificationsEnabled ? 'enabled' : 'disabled'}`,
+      Toast.SHORT,
+    );
   };
 
   const handleSelectTheme = (nextTheme: ThemePreference) => {
@@ -60,6 +65,7 @@ export function SettingsScreen() {
         theme: nextTheme,
       }),
     );
+    Toast.show(`Theme set to ${nextTheme}`, Toast.SHORT);
   };
 
   return (
