@@ -1,5 +1,5 @@
 {
-  "name": "react-native-boilerplate",
+  "name": "@tunicatech/react-native-boilerplate",
   "version": "0.0.1",
   "description": "React Native CLI template with navigation, Redux, Unistyles, SVG icons, and Montserrat fonts.",
   "license": "MIT",

@@ -36,10 +36,10 @@ template/
 After publishing this package to npm, create a new app with:
 
 ```sh
-npx @react-native-community/cli@latest init MyApp --template react-native-boilerplate
+npx @react-native-community/cli@latest init MyApp --template @tunicatech/react-native-boilerplate
 ```
 
-For a scoped npm package, use the scoped package name:
+For a different npm scope, update the root `package.json` name and use that scoped package name:
 
 ```sh
 npx @react-native-community/cli@latest init MyApp --template @your-scope/react-native-boilerplate
