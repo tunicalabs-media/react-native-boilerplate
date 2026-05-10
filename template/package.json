@@ -10,6 +10,7 @@
     "start-reset": "react-native start --reset-cache",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
+    "test": "jest",
     "check-lint": "eslint . --ext .js,.jsx",
     "format": "prettier --write .",
     "check-format": "prettier --check .",

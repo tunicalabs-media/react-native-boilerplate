@@ -1,112 +1,172 @@
-# React Native Boilerplate
+# Tunica React Native Boilerplate
 
-A bare React Native boilerplate with navigation, persisted Redux state, Unistyles styling, SVG icons, and custom Montserrat fonts already wired in.
+A React Native CLI template with TypeScript, navigation, persisted Redux state, Unistyles, SVG icons, and Montserrat fonts already wired in.
 
-## Stack
+Repository: https://github.com/tunicalabs-media/react-native-boilerplate
+
+## Quick Start
+
+Create a new app from the public GitHub repository:
+
+```sh
+npx @react-native-community/cli@latest init MyApp --template https://github.com/tunicalabs-media/react-native-boilerplate.git
+```
+
+Then run the generated app:
+
+```sh
+cd MyApp
+npm run android
+```
+
+For iOS:
+
+```sh
+cd MyApp
+npm run pods
+npm run ios
+```
+
+The generated app includes a `.npmrc` with `legacy-peer-deps=true`, so normal `npm install` uses legacy peer dependency resolution by default.
+
+## Requirements
+
+- Node `>= 22.11.0`
+- React Native development environment for Android and/or iOS
+- Android Studio and Android SDK for Android
+- Xcode and CocoaPods for iOS
+
+Environment setup guide:
+
+https://reactnative.dev/docs/set-up-your-environment
+
+## What You Get
 
 - React Native `0.85.3`
 - React `19.2.3`
 - TypeScript enabled by default
 - React Navigation with native stack and bottom tabs
 - Redux Toolkit and React Redux
-- AsyncStorage for persisted preferences
-- React Native Unistyles with Babel plugin support
+- AsyncStorage-backed persisted preferences
+- React Native Unistyles
 - React Native SVG
-- Montserrat custom fonts linked from `src/font`
-- ESLint, Prettier, Jest, Husky
+- Custom Montserrat fonts
+- ESLint, Prettier, Jest, and Husky
+- npm `legacy-peer-deps=true` configured for generated apps
 
-## Project Structure
+## Generated App Scripts
+
+Run these inside the generated app directory:
+
+```sh
+npm start                 # Start Metro
+npm run start-reset       # Start Metro with cache reset
+npm run android           # Run Android debug build
+npm run ios               # Run iOS debug build
+npm run pods              # Install iOS pods
+npm run assets            # Link or refresh native assets
+npm run lint              # Run ESLint
+npm run lint-fix          # Run ESLint with auto-fix
+npm run check-format      # Check Prettier formatting
+npm run format            # Format files
+npm test                  # Run Jest
+```
+
+Android build helpers:
+
+```sh
+npm run android-clean
+npm run android-apk-debug
+npm run android-apk-release
+npm run android-release
+```
+
+## Generated App Structure
 
 ```text
-template/
-  android/          Android native project
-  ios/              iOS native project
-  src/
+src/
   components/       Shared UI components
   font/             Bundled Montserrat font files
   icons/            react-native-svg icon components
-  navigation/       Root stack, tabs, types, and navigation styles
+  lib/              Shared style helpers
+  navigation/       Root stack, tabs, and navigation types
   screens/          App screens
   store/            Redux store, hooks, and slices
-  theme/            Colors, fonts, and shared styles
+  theme/            Theme provider, colors, fonts, and common styles
 ```
 
-## Create A New App From This Boilerplate
+## Template Behavior
 
-Create a new app directly from the public GitHub repository:
+The React Native CLI replaces the `NativeBoilerplate` placeholder with the app name passed to `init`.
+
+For example:
 
 ```sh
-npx @react-native-community/cli@latest init MyApp --template https://github.com/tunicalabs-media/react-native-boilerplate.git
+npx @react-native-community/cli@latest init ShopApp --template https://github.com/tunicalabs-media/react-native-boilerplate.git
 ```
 
-If this package is published to npm later, use the package name:
+This generates:
+
+- iOS target and project names using `ShopApp`
+- Android package using `com.shopapp`
+- iOS bundle identifier using `com.tunicalabs.shopapp`
+- `app.json` name and display name using `ShopApp`
+- npm package name using `shopapp`
+
+During installation, the template prints a Tunica-branded success message before dependencies are installed.
+
+## Local Template Development
+
+Clone this repository:
 
 ```sh
-npx @react-native-community/cli@latest init MyApp --template @tunicalabs-media/react-native-boilerplate
+git clone https://github.com/tunicalabs-media/react-native-boilerplate.git
+cd react-native-boilerplate
 ```
 
-To test the template from a local checkout before publishing:
+Test the template locally:
 
 ```sh
 npx @react-native-community/cli@latest init MyApp --template file:/absolute/path/to/react-native-boilerplate
 ```
 
-The React Native CLI replaces the `NativeBoilerplate` placeholder with the app name passed to `init`.
-During installation, the template prints a Tunica-branded success message before dependencies are installed.
-TypeScript is enabled by default through `tsconfig.json`, `.ts/.tsx` source files, and the React Native TypeScript config.
-
-Repository:
-
-```text
-https://github.com/tunicalabs-media/react-native-boilerplate
-```
-
-## Setup
-
-Install dependencies:
+To work on the app contained inside the template:
 
 ```sh
 cd template
 npm install
-```
-
-Install iOS pods:
-
-```sh
 npm run pods
-```
-
-Link or refresh native assets after adding fonts:
-
-```sh
-npm run assets
-```
-
-Start Metro:
-
-```sh
-npm start
-```
-
-Run the app:
-
-```sh
 npm run android
-npm run ios
 ```
 
-## Useful Scripts
+## Template Package Structure
+
+```text
+template.config.js     React Native CLI template config
+post-init.js           Tunica post-init message and .npmrc rename
+template/              Files copied into generated apps
+template/_gitignore    Becomes .gitignore in generated apps
+template/_npmrc        Becomes .npmrc in generated apps
+```
+
+## npm Package
+
+If this template is published to npm, use:
 
 ```sh
-npm run start-reset          # Start Metro with cache reset
-npm run lint                 # Run ESLint
-npm run lint-fix             # Run ESLint with auto-fix
-npm run check-format         # Check Prettier formatting
-npm run format               # Format the project
-npm run android-clean        # Clean Android Gradle build
-npm run android-apk-debug    # Build debug APK
-npm run android-apk-release  # Build release APK
-npm run android-release      # Build Android release
+npx @react-native-community/cli@latest init MyApp --template @tunicalabs-media/react-native-boilerplate
+```
+
+Check the package contents before publishing:
+
+```sh
+npm pack --dry-run
+```
+
+Publish publicly:
+
+```sh
+npm publish --access public
 ```
 
 ## Styling
@@ -129,7 +189,7 @@ import { StyleSheet } from 'react-native-unistyles';
 
 Montserrat fonts are stored in `src/font` and linked through `react-native.config.js`.
 
-When adding or changing font files, run:
+When adding or changing font files:
 
 ```sh
 npm run assets
@@ -152,14 +212,3 @@ Navigation types are defined in `src/navigation/types.ts`.
 Redux is configured in `src/store/store.ts`.
 
 Preferences are persisted with AsyncStorage in `src/store/slices/preferencesSlice.ts`. The Settings screen demonstrates persisted notification and theme preferences.
-
-## Requirements
-
-- Node `>= 22.11.0`
-- React Native development environment for Android and/or iOS
-- Xcode and CocoaPods for iOS
-- Android Studio and Android SDK for Android
-
-See the official React Native environment guide for platform setup:
-
-https://reactnative.dev/docs/set-up-your-environment
